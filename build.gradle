@@ -12,6 +12,10 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId 'usb4java-native-libraries'
+            from components.java
+//            artifact packageSources
+//            artifact packageJavadoc
+
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
