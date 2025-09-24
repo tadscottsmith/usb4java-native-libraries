@@ -44,6 +44,13 @@ jobs:
         cd build
         cmake ..
         make
+        
+    - name: Checkout usb4java-native-libraries
+      uses: actions/checkout@v4
+      with:
+        repository: DSheirer/usb4java-native-libraries
+        ref: master
+        path: usb4java-native-libraries
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
