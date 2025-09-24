@@ -57,10 +57,6 @@ jobs:
         cp libusb4java/build/src/libusb4java.dylib \
            usb4java-native-libraries/src/main/resources/org/usb4java/darwin-aarch64/
 
-    - name: Remove repositories section from build.gradle
-      run: |
-        sed -i "/repositories {/,/^    }/d" usb4java-native-libraries/build.gradle
-        
     - name: Build usb4java-native-libraries
       working-directory: usb4java-native-libraries
       run: ./gradlew build
@@ -69,4 +65,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Mac jar
-        path: target/libusb4java-darwin.jar
+        path: usb4java-native-libraries/build/libs/usb4java-native-libraries-1.3.1.jar
