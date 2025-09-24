@@ -59,7 +59,7 @@ jobs:
 
     - name: Create Gradle init file to disable publishing
       run: |
-        cat > init.gradle <<'EOF'
+        cat > usb4java-native-libraries/init.gradle <<'EOF'
         allprojects {
             repositories.clear()
             // You can optionally add a local Maven repo here if needed:
