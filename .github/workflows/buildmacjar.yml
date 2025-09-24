@@ -27,7 +27,7 @@ jobs:
         echo >> /Users/runner/.bash_profile
         echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/runner/.bash_profile
         eval "$(/opt/homebrew/bin/brew shellenv)"
-        brew update
+        brew uninstall libusb --ignore-dependencies
         brew install libusb --head
 
     - name: Upload a Build Artifact
