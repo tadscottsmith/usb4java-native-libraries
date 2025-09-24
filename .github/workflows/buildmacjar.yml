@@ -45,11 +45,9 @@ jobs:
         cmake ..
         make
         
-    - name: Checkout usb4java-native-libraries
+    - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        repository: DSheirer/usb4java-native-libraries
-        ref: master
         path: usb4java-native-libraries
 
     - name: Copy libusb4java.dylib into usb4java-native-libraries resources
