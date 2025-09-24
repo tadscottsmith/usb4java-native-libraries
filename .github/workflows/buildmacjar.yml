@@ -30,6 +30,12 @@ jobs:
         brew uninstall libusb --ignore-dependencies
         brew install libusb --head
 
+    - name: Build libusb4java
+      run: |
+        git clone https://github.com/libusb4java/libusb4java.git
+        cd libusb4java
+        ./mvnw clean install -DskipTests
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
