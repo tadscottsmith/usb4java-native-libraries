@@ -59,7 +59,7 @@ jobs:
 
     - name: Remove publishing section from build.gradle
       run: |
-        sed -i '' '/repositories {/,/}/d' libusb4java/build.gradle
+        sed -i '' '/repositories {/,/}/d' usb4java-native-libraries/build.gradle
     
     - name: Build usb4java-native-libraries
       working-directory: usb4java-native-libraries
