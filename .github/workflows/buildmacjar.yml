@@ -37,6 +37,14 @@ jobs:
         ref: master
         path: libusb4java
 
+    - name: Build libusb4java native library
+      run: |
+        cd libusb4java
+        mkdir build
+        cd build
+        cmake ..
+        make
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
