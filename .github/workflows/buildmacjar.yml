@@ -24,9 +24,9 @@ jobs:
     - name: Install LibUSB
       run: |
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        echo >> /home/runner/.bashrc
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        echo >> /Users/runner/.bash_profile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/runner/.bash_profile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
         brew update
         brew install libusb --head
 
