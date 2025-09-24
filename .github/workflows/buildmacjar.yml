@@ -57,6 +57,10 @@ jobs:
         cp libusb4java/build/src/libusb4java.dylib \
            usb4java-native-libraries/src/main/resources/org/usb4java/darwin-aarch64/
 
+    - name: Remove publishing section from build.gradle
+      run: |
+        sed -i '' '/repositories {/,/}/d' libusb4java/build.gradle
+    
     - name: Build usb4java-native-libraries
       working-directory: usb4java-native-libraries
       run: ./gradlew build
