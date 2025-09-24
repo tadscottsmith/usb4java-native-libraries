@@ -33,7 +33,7 @@ jobs:
     - name: Checkout libusb4java
       uses: actions/checkout@v4
       with:
-        repository: libusb4java/libusb4java
+        repository: usb4java/libusb4java
         ref: master
         path: libusb4java
 
