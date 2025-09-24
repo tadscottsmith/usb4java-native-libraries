@@ -59,7 +59,7 @@ jobs:
 
     - name: Build usb4java-native-libraries
       working-directory: usb4java-native-libraries
-      run: ./gradlew build -x publishToMavenLocal -x publishToSonatype -PossrhUsername="FAKE" -Ppassword = "FAKE"
+      run: ./gradlew build -x publishToMavenLocal -x publishToSonatype -PossrhUsername="FAKE" -PossrhPassword="FAKE"
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
