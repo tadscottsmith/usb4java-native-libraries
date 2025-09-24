@@ -59,8 +59,8 @@ jobs:
 
     - name: Remove repositories section from build.gradle
       run: |
-        sed -i '/^    repositories {/,/^    }/d' usb4java-native-libraries/build.gradle
-
+        sed -i "/repositories {/,/^    }/d" usb4java-native-libraries/build.gradle
+        
     - name: Build usb4java-native-libraries
       working-directory: usb4java-native-libraries
       run: ./gradlew build
