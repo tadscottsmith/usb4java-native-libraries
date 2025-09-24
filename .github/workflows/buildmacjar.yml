@@ -1,0 +1,37 @@
+name: Build Mac Jar
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.3.0
+      with:
+        java-version: 23
+        distribution: liberica
+        java-package: jdk+fk
+        
+    - name: Install LibUSB
+      run: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo >> /home/runner/.bashrc
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew update
+        brew install libusb --head
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mac jar
+        path: target/libusb4java-darwin.jar
