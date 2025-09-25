@@ -41,3 +41,9 @@ jobs:
       - name: Xcode
         shell: bash
         run: cd Xcode && xcodebuild -project libusb.xcodeproj
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}
+          path: /Users/runner/work/usb4java-native-libraries/usb4java-native-libraries/Xcode/build/Release/libusb-1.0.0.dylib
