@@ -30,17 +30,17 @@ jobs:
           brew update
           brew install autoconf automake libtool m4
 
-      - name: bootstrap
-        shell: bash
-        run: ./autogen.sh
-
       - name: configure
         shell: bash
-        run: ./configure --enable-staticv
-
-      - name: make
+        run: ./configure --enable-static
+        
+      - name: compile
         shell: bash
-        run: make -j$(nproc)
+        run: .private/ci-build.sh --build-dir build
+
+      - name: Xcode
+        shell: bash
+        run: cd Xcode && xcodebuild -project libusb.xcodeproj
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
